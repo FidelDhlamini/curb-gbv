@@ -1,8 +1,6 @@
-import routes.Routes;
+package main.java;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import main.java.routes.Routes;
 
 import static spark.Spark.*;
 
@@ -12,7 +10,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         port(getHerokuAssignedPort());
 //        connection();
-//        new Routes();
+        new Routes();
 
     }
 
