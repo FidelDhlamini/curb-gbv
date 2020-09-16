@@ -12,6 +12,8 @@ public Routes(){
         res.type("application/json");
 //        {\"message\":\"Custom 404\"}
         return "{\"status\":\"success\"}";
+//        res.redirect("index.html");
+//        return null;
 //        return res.raw();
     });
 

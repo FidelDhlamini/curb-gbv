@@ -14,9 +14,9 @@ public class Users {
 
   }
 
-  public void storeUsers(User user){
-
-  }
+//  public void storeUsers(User user){
+//
+//  }
 
 
   public void setLastName(String lastName){

@@ -1,12 +1,11 @@
-package raiders;
+package test.java;
 
 import org.jdbi.v3.core.Jdbi;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
+
 public class raidersTest {
     Jdbi jdbi = Jdbi.create("jdbc:postgresql://localhost/imbokodo?username=justin&password=Justine123");
 
