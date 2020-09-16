@@ -10,6 +10,7 @@ public Routes(){
 
     get("/", (req, res) -> {
         res.type("application/json");
+//        {\"message\":\"Custom 404\"}
         return "{\"status\":\"success\"}";
 //        return res.raw();
     });
