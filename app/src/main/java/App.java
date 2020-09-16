@@ -1,8 +1,6 @@
-import routes.Routes;
+package main.java;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import main.java.routes.Routes;
 
 import static spark.Spark.*;
 
@@ -10,9 +8,17 @@ import static spark.Spark.*;
 public class App {
 
     public static void main(String[] args) throws Exception {
+        Boolean localhost = true;
+        if (localhost) {
+            String projectDir = System.getProperty("user.dir");
+            String staticDir = "/src/main/resources/public";
+            staticFiles.externalLocation(projectDir + staticDir);
+        } else {
+            staticFiles.location("/public");
+        }
         port(getHerokuAssignedPort());
 //        connection();
-//        new Routes();
+        new Routes();
 
     }
 
