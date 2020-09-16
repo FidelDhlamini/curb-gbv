@@ -13,6 +13,12 @@ public class Users {
         this.firstName = firstName;
 
   }
+
+  public void storeUsers(User user){
+
+  }
+
+
   public void setLastName(String lastName){
         this.lastName = lastName;
   }
