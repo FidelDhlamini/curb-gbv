@@ -8,6 +8,7 @@ public class Report {
     private String location;
     private String victimName;
     private String victimState;
+    private String describe;
     ArrayList <String> urgent = new ArrayList<String>();
     ArrayList <String> fine = new ArrayList<String>();
 
@@ -15,7 +16,9 @@ public class Report {
         this.name = name;
         this.email = email;
         this.location = location;
+
     }
+
    public void takeVictimDetails(String victimName,String victimState){
         if(victimState.equals("Severely Injured")){
             urgent.add(victimName);
@@ -25,6 +28,11 @@ public class Report {
         }
 
    }
+    public void attackerDescript(String describe){
+        this.describe = describe;
+
+    }
+
 
 
 
