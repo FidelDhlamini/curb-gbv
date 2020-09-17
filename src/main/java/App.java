@@ -1,8 +1,7 @@
 import routes.Routes;
-//import spark.Spark;
 
 import static spark.Spark.port;
-//import static spark.Spark.staticFiles;
+import static spark.Spark.staticFiles;
 
 
 public class App {
@@ -16,7 +15,7 @@ public class App {
 //        } else {
 //            staticFiles.location("/public");
 //        }
-//        staticFiles.location("/public"); // Static files
+        staticFiles.location("/public"); // Static files
 //        Spark.staticFileLocation("/public");
         port(getHerokuAssignedPort());
 //        connection();
