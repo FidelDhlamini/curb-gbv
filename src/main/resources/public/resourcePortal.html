@@ -6,6 +6,9 @@
     <meta name="generator" content="Jekyll v4.1.1">
     <title>Imbokodo - Curb GBV</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <scirpt src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></scirpt>
+
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -53,26 +56,26 @@
 </nav>
 
 <div class="container-fluid">
-    <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <div class="row" style="min-height:100%">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="min-height:100% !important">
             <div class="sidebar-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" href="#overview">
                             <i data-feather="home"></i>
                             Overview
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" href="#stats">
                             <i data-feather="hash"></i>
                             GBV Stats
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#links">
                             <i data-feather="link"></i>
                             Useful Links
                         </a>
@@ -93,16 +96,10 @@
                 <h1 class="h2">Overview</h1>
             </div>
 
-            <div id='map' style='width: 100%; height: 480px;'></div>
-            <script>
-            mapboxgl.accessToken = 'pk.eyJ1IjoiaW5jcmVkaWJsZWphZ3VyIiwiYSI6ImNrOTJwM2FsNzAyM2szbW9hdWR2OXBqZjUifQ.6H9790vEmqomFGSu0Q8M0g';
-            var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/incrediblejagur/ck7xs2kdu00ot1ilpid6krvs7', // stylesheet location
-            center: [24.991639, -28.8166236],
-            zoom: 4.0 // starting zoom
-            });
-            </script>
+            <div id='map' style='width: 100%; height: 480px;'>
+
+            </div>
+
             </div>
 
             <div class="statsContainer containerTab" style="display:none">
@@ -124,8 +121,9 @@
 
 </body>
 
-<script src="dashboard.js"></script>
-<script src="ImbokodoDOM.js"></script>
+<script src="/js/ImbokodoDOM.js"></script>
+<script src="/js/mapbox.js"></script>
+<script src="/js/getData.js"></script>
 <script> feather.replace() </script>
 
 </html>

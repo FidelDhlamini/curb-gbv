@@ -12,8 +12,8 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  addressField.value = position.coords.latitude +
-  ";" + position.coords.longitude;
+  addressField.value = position.coords.longitude +
+  "," + position.coords.latitude;
 }
 
 getLocation();
