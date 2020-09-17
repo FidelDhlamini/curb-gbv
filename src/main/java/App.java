@@ -7,16 +7,8 @@ import static spark.Spark.staticFiles;
 public class App {
 
     public static void main(String[] args) throws Exception {
-//        Boolean localhost = false;
-//        if (localhost) {
-//            String projectDir = System.getProperty("user.dir");
-//            String staticDir = "/src/main/resources/public";
-//            staticFiles.externalLocation(projectDir + staticDir);
-//        } else {
-//            staticFiles.location("/public");
-//        }
+
         staticFiles.location("/public"); // Static files
-//        Spark.staticFileLocation("/public");
         port(getHerokuAssignedPort());
 //        connection();
         new Routes();

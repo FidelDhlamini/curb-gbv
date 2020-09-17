@@ -19,18 +19,27 @@ public Routes(){
     });
 
     get("/resource", (req,res) -> {
-//        res.header("Content-Type", "text/html; charset=UTF-8");
-//        res.type("text/html");
         res.redirect("/resourcePortal.html");
-//        res.getClass().
         return null;
     });
 
     get("/report", (req,res) -> {
-//        res.header("Content-Type", "text/html; charset=UTF-8");
-//        res.type("text/html");
         res.redirect("/report.html");
-//        res.getClass().
+        return null;
+    });
+
+    get("/reported-data", (req,res) -> {
+        return null;
+    });
+
+    post("/report", (req,res) -> {
+
+        String contact = req.queryParams("contact");
+        String name = req.queryParams("name");
+        String location = req.queryParams("location");
+        String details = req.queryParams("details");
+        api.reportCase(contact, name, location, details);
+        res.redirect("/resource");
         return null;
     });
 
@@ -42,17 +51,13 @@ public Routes(){
         return null;
     });
 
+
     post("/signup", (req, res) -> {
 
         res.redirect("/");
         return null;
     });
 
-    post("/report", (req, res) -> {
-
-        res.redirect("/");
-        return null;
-    });
 
 
 
