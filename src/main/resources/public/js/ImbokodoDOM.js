@@ -25,7 +25,6 @@ function hashTemplate() {
     }
 
 
-    console.log(getHash);
     }
 
 window.addEventListener("hashchange", function () {

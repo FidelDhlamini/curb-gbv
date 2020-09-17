@@ -1,10 +1,9 @@
-function getData(){
+function getCoordinates(){
 
-axios
-     .get('/reported-data')
+ return axios
+     .get('/get-coordinates')
      .then(function(result){
-        console.log(result)
-     })
+        return result.data;
+     });
 
-
-}
+};

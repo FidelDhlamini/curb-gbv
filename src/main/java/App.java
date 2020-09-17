@@ -1,5 +1,9 @@
 import routes.Routes;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
 import static spark.Spark.port;
 import static spark.Spark.staticFiles;
 
@@ -10,23 +14,34 @@ public class App {
 
         staticFiles.location("/public"); // Static files
         port(getHerokuAssignedPort());
-//        connection();
+        connection();
         new Routes();
 
     }
 
-//    public static Connection connection() throws Exception {
-//        final String DATABASE_URL = "jdbc:h2:mem:db1";
-//        Class.forName("org.h2.Driver");
-//        Connection conn = DriverManager.getConnection(DATABASE_URL, "sa", "");
-//        String sql = "create table GREET (\n" +
-//                "id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,\n" +
-//                "name varchar(40),\n" +
-//                "count int\n" + ");";
-//        PreparedStatement createTable = conn.prepareStatement(sql);
-//        createTable.execute();
-//        return conn;
-//    }
+    public static Connection connection() throws Exception {
+        Config config = new Config();
+        final String DATABASE_URL = "jdbc:postgresql://[::1]:5432/postgres";
+        Class.forName("org.postgresql.Driver");
+        Connection conn = DriverManager.getConnection(config.CLOUD_DATABASE_URL, config.User, config.Password);
+        String sql = "CREATE TABLE reportedCases (\n" +
+                "\tid serial PRIMARY KEY,\n" +
+                "\tname TEXT,\n" +
+                "\tcontact TEXT,\n" +
+                "\tlocation TEXT,\n" +
+                "\tdetails TEXT NOT NULL,\n" +
+                "\tcontactMe TEXT,\n" +
+                "\tresolved BOOLEAN\n" +
+                ");\n";
+        try {
+            PreparedStatement createTable = conn.prepareStatement(sql);
+            createTable.execute();
+        }catch (Exception e){
+            System.out.println(e);
+        }finally {
+            return conn;
+        }
+    }
 
     static int getHerokuAssignedPort() {
         ProcessBuilder processBuilder = new ProcessBuilder();

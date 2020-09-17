@@ -93,10 +93,10 @@
 
             <div class="overviewContainer containerTab">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Overview</h1>
+                <h1 class="h2">Visual Overview</h1>
             </div>
 
-            <div id='map' style='width: 100%; height: 480px'>
+            <div id='map' style='width: 100%; height: 80% !important'>
 
             </div>
 
@@ -106,12 +106,42 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">GBV stats</h1>
                 </div>
+                <div class="row centered"><div class="mycards col-sm"><div class="card-group" style="margin-top: 10px;">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body"><h5 class="card-title">Total Reported</h5>
+                            <p class="card-text totalReported">#&nbsp;</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Resolved</h5>
+                            <p class="card-text totalResolved">#&nbsp;</p></div></div><div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Unresolved</h5>
+                        <p class="card-text totalUnresolved">#&nbsp;</p>
+                    </div>
+                </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body"><h5 class="card-title">#</h5>
+                            <p class="card-text">#&nbsp;</p></div>
+                    </div>
+                </div>
+                </div>
+                </div>
             </div>
 
             <div class="usefulLinksContainer containerTab" style="display:none">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Useful links</h1>
                 </div>
+                <image src="https://i-cf65.gskstatic.com/content/dam/cf-viiv/viiv-healthcare/en_GB/images/GBV%205%20WAYS%20NEW.JPG?auto=format" style="width:75%"></image>
+                <div style="margin:1px">&nbsp;</div>
+                <a href="https://www.saferspaces.org.za/understand/entry/gender-based-violence-in-south-africa"><h2>More about GBV</h2></a>
+                <a href="http://gbv.org.za/"><h2>Official GBV Portal of South Africa</h2></a>
+                <a href="https://www.womenforwomen.org/blogs/three-things-you-can-do-about-gender-based-violence"><h2>3 things you can do about GBV</h2></a>
+                <a href="https://www.unwomen.org/en/what-we-do/ending-violence-against-women/prevention"><h2>Focusing on prevention to stop the violence</h2></a>
+                <a href="https://iwda.org.au/7-ways-to-fight-gender-based-violence/"><h2>7 WAYS TO FIGHT GENDER-BASED VIOLENCE</h2></a>
+                <div style="margin:5px">&nbsp;</div>
             </div>
 
 
@@ -120,10 +150,9 @@
 </div>
 
 </body>
-
+<script src="/js/getData.js"></script>
 <script src="/js/ImbokodoDOM.js"></script>
 <script src="/js/mapbox.js"></script>
-<script src="/js/getData.js"></script>
 <script> feather.replace() </script>
 
 </html>

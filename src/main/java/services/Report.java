@@ -4,17 +4,16 @@ import java.util.Map;
 
 
 public class Report {
-
-
-    public Map<String, Object> takeUserDetails(String name, String contact, String location, String details, String victimState) {
-        Map<String, Object> user = new HashMap<>();
-        user.put("contact", contact);
-        user.put("name", name);
-        user.put("location", location);
-        user.put("details", details);
-        user.put("victimState", victimState);
-
-        return user;
+    DBQueries dbQueries = new DBQueries();
+    public Map<String, Object> takeUserDetails(String name, String contact, String location, String details, String contactMe) {
+        Map<String, Object> report = new HashMap<>();
+        report.put("contact", contact);
+        report.put("name", name);
+        report.put("location", location);
+        report.put("details", details);
+        report.put("contactMe", contactMe);
+        dbQueries.storeInDatabase(report);
+        return report;
     }
 }
 

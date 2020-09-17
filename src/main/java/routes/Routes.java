@@ -32,29 +32,21 @@ public Routes(){
         return null;
     });
 
+    get("/get-coordinates", (req,res) -> {
+        res.type("application/json");
+        return api.getAllCoordinates();
+    });
+
     post("/report", (req,res) -> {
 
         String contact = req.queryParams("contact");
         String name = req.queryParams("name");
         String location = req.queryParams("location");
         String details = req.queryParams("details");
-        api.reportCase(contact, name, location, details);
+        String contactMe = req.queryParams("contactMe");
+        if(contactMe == null) contactMe = "no";
+        api.reportCase(contact, name, location, details, contactMe);
         res.redirect("/resource");
-        return null;
-    });
-
-    post("/login", (req, res) -> {
-        String username = req.queryParams("username");
-        String password = req.queryParams("password");
-        api.login(username,password);
-        res.redirect("/");
-        return null;
-    });
-
-
-    post("/signup", (req, res) -> {
-
-        res.redirect("/");
         return null;
     });
 

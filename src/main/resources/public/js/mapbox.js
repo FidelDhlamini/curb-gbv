@@ -1,26 +1,60 @@
 
 var map;
-function map(){
+async function map(){
          mapboxgl.accessToken = 'pk.eyJ1IjoiaW5jcmVkaWJsZWphZ3VyIiwiYSI6ImNrOTJwM2FsNzAyM2szbW9hdWR2OXBqZjUifQ.6H9790vEmqomFGSu0Q8M0g';
                 map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/incrediblejagur/ck7xs2kdu00ot1ilpid6krvs7', // stylesheet location
                 center: [24.991639, -28.8166236],
-                zoom: 4.0 // starting zoom
+                zoom: 4.2 // starting zoom
 })
-
-
-
-addPoints("test");
+ setInterval(await addPoints(), 3000);
 
 };
 
-function addPoints(point){
+async function addPoints(){
+
+
+map.on('load', async function () {
+map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+
+let coordinate_data = await getCoordinates();
+for(let z = 0; z < coordinate_data.length; z++){
+let coord = coordinate_data[z];
+let longitude = Number(coord.split(';')[0]);
+let latitude = Number(coord.split(';')[1]);
+map.addSource('points'+z, {
+'type': 'geojson',
+'data': {
+'type': 'FeatureCollection',
+'features': [
+{
+'type': 'Feature',
+'geometry': {
+'type': 'Point',
+'coordinates': [longitude, latitude]
+}
+}
+]
+}
+});
+let _id = "pointer"+z;
+map.addLayer({
+'id': _id.toString(),
+'type': 'symbol',
+'source': 'points'+z,
+'layout': {
+'icon-image': 'pulsing-dot'
+}
+});
+}
+});
+
+}
+
+
 
 var size = 70;
-
-// implementation of CustomLayerInterface to draw a pulsing dot icon on the map
-// see https://docs.mapbox.com/mapbox-gl-js/api/#customlayerinterface for more info
 var pulsingDot = {
 width: size,
 height: size,
@@ -86,37 +120,5 @@ map.triggerRepaint();
 return true;
 }
 };
-
-map.on('load', function () {
-map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
-
-map.addSource('points', {
-'type': 'geojson',
-'data': {
-'type': 'FeatureCollection',
-'features': [
-{
-'type': 'Feature',
-'geometry': {
-'type': 'Point',
-'coordinates': [18.4157473,-33.9274074]
-}
-}
-]
-}
-});
-console.log('change me later <<<<<<<<<--------------------');
-map.addLayer({
-'id': 'points',
-'type': 'symbol',
-'source': 'points',
-'layout': {
-'icon-image': 'pulsing-dot'
-}
-});
-});
-
-
-}
 
 map();
