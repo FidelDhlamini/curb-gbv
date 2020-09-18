@@ -3,6 +3,8 @@ package api;
 import services.DBQueries;
 import services.Report;
 
+import java.sql.ResultSet;
+
 public class MainApi {
 
     public void reportCase(String contact, String name, String location, String details, String contactMe){
@@ -13,6 +15,16 @@ public class MainApi {
     public String getAllCoordinates(){
         DBQueries dbQueries = new DBQueries();
         return dbQueries.getAllCoordinates();
+    }
+
+    public String getAllData(){
+        DBQueries dbQueries = new DBQueries();
+        return dbQueries.getAllDataFromDB();
+    }
+
+    public int getTotalReported(){
+        DBQueries dbQueries = new DBQueries();
+        return dbQueries.getTotalReported();
     }
 
 

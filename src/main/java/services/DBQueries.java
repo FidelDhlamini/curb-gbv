@@ -58,6 +58,63 @@ public class DBQueries {
         return null;
     }
 
+    public String getAllDataFromDB(){
+        try {
+            Connection conn = getConnection();
+            final String ALL_REPORTS = "select * from reportedCases";
+            PreparedStatement getReports = conn.prepareStatement(ALL_REPORTS);
+            getReports.execute();
+            ResultSet rs = getReports.executeQuery();
+            List<List<String>> allReports = new ArrayList<>();
+
+            while (rs.next()) {
+                List<String> report = new ArrayList<>();
+                report.add(rs.getString("name"));
+                report.add(rs.getString("details"));
+                report.add(rs.getString("contact"));
+                report.add(rs.getString("location"));
+                report.add(rs.getString("contactMe"));
+                allReports.add(report);
+            }
+            ObjectMapper mapper = new ObjectMapper();
+            String json = mapper.writeValueAsString(allReports);
+
+            //Print JSON output
+//            System.out.println(json);
+            return json;
+        }catch (Exception e){
+
+        }
+        return"";
+    }
+
+    public int getTotalReported(){
+        try {
+            Connection conn = getConnection();
+            final String countTotalReported = "select COUNT(*) AS rowCount from reportedCases";
+            PreparedStatement getReports = conn.prepareStatement(countTotalReported);
+            getReports.execute();
+            ResultSet rs = getReports.executeQuery();
+            rs.next();
+            int total = rs.getInt("rowCount");
+            return total;
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return 0;
+    }
+
+//    public String getTotalResolved(){
+//
+//        return"";
+//
+//    }
+
+//    public String getTotalUnresolved(){
+//        return"";
+//
+//    }
+
 
 
 

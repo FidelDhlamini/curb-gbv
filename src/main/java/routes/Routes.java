@@ -29,7 +29,11 @@ public Routes(){
     });
 
     get("/reported-data", (req,res) -> {
-        return null;
+        return api.getAllData();
+    });
+
+    get("/total-count", (req,res) -> {
+        return api.getTotalReported();
     });
 
     get("/get-coordinates", (req,res) -> {
