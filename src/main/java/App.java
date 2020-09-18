@@ -1,3 +1,4 @@
+import Config.DBConfig;
 import routes.Routes;
 
 import java.sql.Connection;
@@ -20,10 +21,10 @@ public class App {
     }
 
     public static Connection connection() throws Exception {
-        Config config = new Config();
+        DBConfig dbConfig = new DBConfig();
         final String DATABASE_URL = "jdbc:postgresql://[::1]:5432/postgres";
         Class.forName("org.postgresql.Driver");
-        Connection conn = DriverManager.getConnection(config.CLOUD_DATABASE_URL, config.User, config.Password);
+        Connection conn = DriverManager.getConnection(dbConfig.CLOUD_DATABASE_URL, dbConfig.User, dbConfig.Password);
         String sql = "CREATE TABLE reportedCases (\n" +
                 "\tid serial PRIMARY KEY,\n" +
                 "\tname TEXT,\n" +

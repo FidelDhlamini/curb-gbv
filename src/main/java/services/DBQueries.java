@@ -1,9 +1,8 @@
 package services;
 
+import Config.DBConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.sql.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -11,9 +10,10 @@ import java.util.Map;
 public class DBQueries {
 
     public static Connection getConnection() throws Exception {
+        DBConfig dbConfig = new DBConfig();
         final String DATABASE_URL = "jdbc:postgresql://[::1]:5432/postgres";
         Class.forName("org.postgresql.Driver");
-        Connection conn = DriverManager.getConnection(DATABASE_URL, "postgres", "pg123");
+        Connection conn = DriverManager.getConnection(dbConfig.CLOUD_DATABASE_URL, dbConfig.User, dbConfig.Password);
         return conn;
     };
 
