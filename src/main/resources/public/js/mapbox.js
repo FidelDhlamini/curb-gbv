@@ -8,7 +8,8 @@ async function map(){
                 center: [24.991639, -28.8166236],
                 zoom: 4.2 // starting zoom
 })
- setInterval(await addPoints(), 3000);
+  map.addControl(new mapboxgl.NavigationControl());
+ await addPoints();
 
 };
 

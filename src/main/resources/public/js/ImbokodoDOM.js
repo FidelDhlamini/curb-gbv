@@ -2,6 +2,11 @@ let usefulLinksContainer = document.querySelector(".usefulLinksContainer");
 let statsContainer = document.querySelector(".statsContainer");
 let overviewContainer = document.querySelector(".overviewContainer");
 
+function runMeOnload(){
+    location.hash = "overview";
+}
+runMeOnload();
+
 function resetTab(){
         overviewContainer.setAttribute('style', 'display:none');
                 statsContainer.setAttribute('style', 'display:none');
