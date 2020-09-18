@@ -28,15 +28,17 @@ public Routes(){
         return null;
     });
 
-    get("/reported-data", (req,res) -> {
+    get("/api/reported-data", (req,res) -> {
+        res.type("application/json");
         return api.getAllData();
     });
 
-    get("/total-count", (req,res) -> {
+    get("/api/total-count", (req,res) -> {
+        res.type("application/json");
         return api.getTotalReported();
     });
 
-    get("/get-coordinates", (req,res) -> {
+    get("/api/get-coordinates", (req,res) -> {
         res.type("application/json");
         return api.getAllCoordinates();
     });

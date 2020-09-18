@@ -3,7 +3,7 @@ let total_cases = document.querySelector("#total-cases");
 function getCoordinates(){
 
  return axios
-     .get('/get-coordinates')
+     .get('/api/get-coordinates')
      .then(function(result){
         return result.data;
      });
@@ -13,7 +13,7 @@ function getCoordinates(){
 function getReports(){
 
  return axios
-     .get('/reported-data')
+     .get('/api/reported-data')
      .then(function(result){
         return result.data;
      });
@@ -23,7 +23,7 @@ function getReports(){
 function getStats(){
 
  return axios
-     .get('/total-count')
+     .get('/api/total-count')
      .then(function(result){
      total_cases.innerHTML = result.data;
         return null;
